@@ -13,10 +13,10 @@ namespace QLTT
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Entities : DbContext
+    public partial class QuanLyNhaThuocEntities : DbContext
     {
-        public Entities()
-            : base("name=Entities")
+        public QuanLyNhaThuocEntities()
+            : base("name=QuanLyNhaThuocEntities")
         {
         }
     

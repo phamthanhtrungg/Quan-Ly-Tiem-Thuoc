@@ -585,7 +585,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="QuanLyNhaThuocEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ChucVus" EntityType="Self.ChucVu" />
           <EntitySet Name="CT_HoaDon" EntityType="Self.CT_HoaDon" />
           <EntitySet Name="HoaDons" EntityType="Self.HoaDon" />
@@ -647,7 +647,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="QuanLyNhaThuocModelStoreContainer" CdmEntityContainer="Entities">
+        <EntityContainerMapping StorageEntityContainer="QuanLyNhaThuocModelStoreContainer" CdmEntityContainer="QuanLyNhaThuocEntities">
           <EntitySetMapping Name="ChucVus">
             <EntityTypeMapping TypeName="QuanLyNhaThuocModel.ChucVu">
               <MappingFragment StoreEntitySet="ChucVu">
