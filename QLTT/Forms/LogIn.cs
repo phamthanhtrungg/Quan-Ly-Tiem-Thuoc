@@ -29,24 +29,13 @@ namespace QLTT
 
             var hashedPassword = new MyCrypto(txtPassword.Text.Trim()).ToArray();
 
-            var result = false;
-            if (rdNewUser.Checked)
-            {
-                result = nhanVienLogic.Register(txtUsername.Text.Trim(), Encoding.UTF8.GetString(hashedPassword));
-            }
-            else
-            {
-                result = nhanVienLogic.Login(txtUsername.Text.Trim(), Encoding.UTF8.GetString(hashedPassword));
-            }
+            var result = nhanVienLogic.Login(txtUsername.Text.Trim(), Encoding.UTF8.GetString(hashedPassword));
+
 
             if (!result)
             {
-                if (rdNewUser.Checked)
-                {
-                    MessageBox.Show("Something wrong happened", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                    MessageBox.Show("Invalid username or password", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                MessageBox.Show("Invalid username or password", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
             else
@@ -85,6 +74,12 @@ namespace QLTT
                 e.Cancel = false;
                 errorProvider1.SetError(txtUsername, null);
             }
+        }
+
+        private void txtRegister_Click(object sender, System.EventArgs e)
+        {
+            var registrationForm = new Registration();
+            registrationForm.ShowDialog();
         }
     }
 }
