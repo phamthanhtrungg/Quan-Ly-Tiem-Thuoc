@@ -15,11 +15,6 @@ namespace QLTT.Repos
             entities = new QuanLyNhaThuocEntities();
         }
 
-        internal Task<bool> GetOneAsync()
-        {
-            throw new NotImplementedException();
-        }
-
         public bool Add(NhanVien entity)
         {
             entities.NhanViens.Add(entity);
