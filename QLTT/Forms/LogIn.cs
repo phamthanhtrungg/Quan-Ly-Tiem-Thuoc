@@ -1,6 +1,5 @@
 ﻿using QLTT.Forms;
 using QLTT.Logic;
-using System.Text;
 using System.Windows.Forms;
 
 namespace QLTT
@@ -27,9 +26,10 @@ namespace QLTT
                 return;
             }
 
-            var hashedPassword = new MyCrypto(txtPassword.Text.Trim()).ToArray();
+            var password = txtPassword.Text.Trim();
+            var username = txtUsername.Text.Trim();
 
-            var result = nhanVienLogic.Login(txtUsername.Text.Trim(), Encoding.UTF8.GetString(hashedPassword));
+            var result = nhanVienLogic.Login(username, password);
 
 
             if (!result)
@@ -42,9 +42,9 @@ namespace QLTT
             {
                 var main = new Main();
                 this.Hide();
-                main.Show();
+                main.ShowDialog();
                 this.Show();
-                main.Dispose();
+
             }
         }
 
@@ -80,6 +80,12 @@ namespace QLTT
         {
             var registrationForm = new Registration();
             registrationForm.ShowDialog();
+        }
+
+        private void labelFgP_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            var forgotPassword = new ForgotPassword();
+            forgotPassword.ShowDialog();
         }
     }
 }

@@ -1,13 +1,13 @@
 ﻿using QLTT.Logic;
 using QLTT.Repos;
-using System.ComponentModel;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace QLTT.Forms
 {
     public partial class Registration : Form
     {
-        private bool showLblInfo = false;
+
         private readonly NhanVienLogic logic;
         private readonly NhanVienRepo nhanvienRepo;
         private readonly ChucVuRepo chucVuRepo;
@@ -25,18 +25,7 @@ namespace QLTT.Forms
             Close();
         }
 
-        private void timerInfo_Tick(object sender, System.EventArgs e)
-        {
-            if (showLblInfo)
-            {
-                lblInfo.Visible = false;
-            }
-            else
-            {
-                lblInfo.Visible = true;
-            }
-            showLblInfo = !showLblInfo;
-        }
+
 
         private void btnRegister_Click(object sender, System.EventArgs e)
         {
@@ -44,19 +33,29 @@ namespace QLTT.Forms
             {
                 return;
             }
-            var maNV = "";
+            var maNV = cmbChucVu.SelectedValue.ToString().Trim() + "_";
             do
             {
-                maNV = Utils.RandomString();
+                maNV = cmbChucVu.SelectedValue.ToString().Trim() + "_" + Utils.RandomString();
             } while (nhanvienRepo.GetOne(n => n.MaNV == maNV) != null);
             var hotenNV = txtFullname.Text;
             var diaChiNV = txtAddress.Text;
             var email = txtEmail.Text;
-            var gioiTinh = rdMale.Checked;
+            var gioiTinh = rdMale.Checked ? "Nam" : "Nữ";
             var pwd = txtPwd.Text;
             var username = txtUsername.Text;
             var phone = txtPhone.Text;
             var ngaySinh = dtBOD.Text;
+            var res = logic.Register(username, pwd, maNV, diaChiNV, email, gioiTinh, hotenNV, cmbChucVu.SelectedValue.ToString().Trim(), ngaySinh); ;
+            if (res)
+            {
+                MessageBox.Show("Đăng kí thành công", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Đăng kí thất bại", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void Registration_Load(object sender, System.EventArgs e)
@@ -66,19 +65,47 @@ namespace QLTT.Forms
             cmbChucVu.DisplayMember = "TenCV";
         }
 
-        private void Validation_Not_Empty(object sender, CancelEventArgs e)
+        private void txtFullname_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            Label label = sender as Label;
-            if (label.Text.Length == 0)
+            if (!Regex.Match(txtFullname.Text, @"\b^[A-Z]\p{L}+\s*\b").Success)
             {
-                errorProvider1.SetError(label, "Không thể trống");
+                errorProvider1.SetError(txtFullname, "Tên không hợp lệ");
                 e.Cancel = true;
             }
             else
             {
-                errorProvider1.SetError(label, null);
+                errorProvider1.SetError(txtFullname, null);
                 e.Cancel = false;
             }
+        }
+
+        private void txtUsername_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (!Regex.Match(txtUsername.Text, @"^[a-zA-Z0-9\\_]{8,}").Success)
+            {
+                errorProvider1.SetError(txtUsername, "Username không hợp lệ");
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider1.SetError(txtUsername, null);
+                e.Cancel = false;
+            }
+        }
+
+        private void txtPwd_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (!Regex.Match(txtPwd.Text, @"^[a-zA-Z0-9\\_]{8,}").Success)
+            {
+                errorProvider1.SetError(txtPwd, "Password không hợp lệ");
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider1.SetError(txtPwd, null);
+                e.Cancel = false;
+            }
+
         }
     }
 }

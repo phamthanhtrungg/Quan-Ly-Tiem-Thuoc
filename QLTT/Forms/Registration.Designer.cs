@@ -47,8 +47,6 @@
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtPwd = new System.Windows.Forms.TextBox();
-            this.lblInfo = new System.Windows.Forms.Label();
-            this.timerInfo = new System.Windows.Forms.Timer(this.components);
             this.label9 = new System.Windows.Forms.Label();
             this.dtBOD = new System.Windows.Forms.DateTimePicker();
             this.label10 = new System.Windows.Forms.Label();
@@ -84,11 +82,12 @@
             this.txtFullname.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txtFullname.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtFullname.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFullname.Location = new System.Drawing.Point(188, 114);
+            this.txtFullname.Location = new System.Drawing.Point(183, 114);
             this.txtFullname.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtFullname.Name = "txtFullname";
             this.txtFullname.Size = new System.Drawing.Size(297, 20);
             this.txtFullname.TabIndex = 1;
+            this.txtFullname.Validating += new System.ComponentModel.CancelEventHandler(this.txtFullname_Validating);
             // 
             // label3
             // 
@@ -251,6 +250,7 @@
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(297, 20);
             this.txtUsername.TabIndex = 2;
+            this.txtUsername.Validating += new System.ComponentModel.CancelEventHandler(this.txtUsername_Validating);
             // 
             // label8
             // 
@@ -274,24 +274,7 @@
             this.txtPwd.Size = new System.Drawing.Size(297, 20);
             this.txtPwd.TabIndex = 3;
             this.txtPwd.UseSystemPasswordChar = true;
-            // 
-            // lblInfo
-            // 
-            this.lblInfo.AutoSize = true;
-            this.lblInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.lblInfo.Location = new System.Drawing.Point(27, 599);
-            this.lblInfo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblInfo.Name = "lblInfo";
-            this.lblInfo.Size = new System.Drawing.Size(152, 20);
-            this.lblInfo.TabIndex = 9;
-            this.lblInfo.Text = "Đăng kí thành công";
-            this.lblInfo.Visible = false;
-            // 
-            // timerInfo
-            // 
-            this.timerInfo.Interval = 500;
-            this.timerInfo.Tick += new System.EventHandler(this.timerInfo_Tick);
+            this.txtPwd.Validating += new System.ComponentModel.CancelEventHandler(this.txtPwd_Validating);
             // 
             // label9
             // 
@@ -344,11 +327,12 @@
             this.AcceptButton = this.btnLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.CausesValidation = false;
             this.ClientSize = new System.Drawing.Size(548, 736);
             this.Controls.Add(this.cmbChucVu);
             this.Controls.Add(this.dtBOD);
-            this.Controls.Add(this.lblInfo);
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.radioButton2);
@@ -371,10 +355,10 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximizeBox = false;
             this.Name = "Registration";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Register New User";
-            this.TopMost = true;
             this.Load += new System.EventHandler(this.Registration_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
@@ -402,8 +386,6 @@
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtPwd;
-        private System.Windows.Forms.Label lblInfo;
-        private System.Windows.Forms.Timer timerInfo;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DateTimePicker dtBOD;
         private System.Windows.Forms.Label label10;

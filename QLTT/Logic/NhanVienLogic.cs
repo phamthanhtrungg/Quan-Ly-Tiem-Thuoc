@@ -1,4 +1,5 @@
 ﻿using QLTT.Repos;
+using System;
 
 namespace QLTT.Logic
 {
@@ -16,20 +17,31 @@ namespace QLTT.Logic
 
         }
 
-        public bool Register(string username, string hashedPassword)
+        public bool Register(string username, string hashedPassword, string maNV, string diachiNV, string email, string gioitinhNV, string hotenNV, string maCV
+            , string ngaysinhNV
+            )
         {
-            var maNV = Utils.RandomString();
-            do
+            //check if there's any nhanvien in database with username
+            var nhanvien = repo.GetOne(n => n.Username == username);
+            if (nhanvien != null)
             {
-                maNV = Utils.RandomString();
-            } while (repo.GetOne(n => n.MaNV == maNV) != null);
-            var nhanvien = new NhanVien()
+                return false;
+            }
+            nhanvien = new NhanVien()
             {
                 MaNV = maNV,
                 Username = username,
                 Password = hashedPassword,
+                DiaChiNV = diachiNV,
+                Email = email,
+                NgaySinhNV = DateTime.Parse(ngaysinhNV),
+                GioiTinhNV = gioitinhNV,
+                HoTenNV = hotenNV,
+                MaCV = maCV
 
             };
+
+
             return repo.Add(nhanvien);
         }
     }
