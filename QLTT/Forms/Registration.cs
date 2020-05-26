@@ -46,7 +46,7 @@ namespace QLTT.Forms
             var username = txtUsername.Text;
             var phone = txtPhone.Text;
             var ngaySinh = dtBOD.Text;
-            var res = logic.Register(username, pwd, maNV, diaChiNV, email, gioiTinh, hotenNV, cmbChucVu.SelectedValue.ToString().Trim(), ngaySinh); ;
+            var res = logic.DangKi(username, pwd, maNV, diaChiNV, email, gioiTinh, hotenNV, cmbChucVu.SelectedValue.ToString().Trim(), ngaySinh); ;
             if (res)
             {
                 MessageBox.Show("Đăng kí thành công", "", MessageBoxButtons.OK, MessageBoxIcon.Information);

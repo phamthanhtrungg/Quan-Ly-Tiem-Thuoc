@@ -29,7 +29,7 @@ namespace QLTT
             var password = txtPassword.Text.Trim();
             var username = txtUsername.Text.Trim();
 
-            var result = nhanVienLogic.Login(username, password);
+            var result = nhanVienLogic.DanhNhap(username, password);
 
 
             if (!result)

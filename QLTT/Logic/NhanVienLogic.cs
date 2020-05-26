@@ -11,13 +11,13 @@ namespace QLTT.Logic
             repo = new NhanVienRepo();
         }
 
-        public bool Login(string username, string hashedPassword)
+        public bool DanhNhap(string username, string hashedPassword)
         {
             return repo.GetOne(n => n.Username == username && n.Password == hashedPassword) != null;
 
         }
 
-        public bool Register(string username, string hashedPassword, string maNV, string diachiNV, string email, string gioitinhNV, string hotenNV, string maCV
+        public bool DangKi(string username, string hashedPassword, string maNV, string diachiNV, string email, string gioitinhNV, string hotenNV, string maCV
             , string ngaysinhNV
             )
         {

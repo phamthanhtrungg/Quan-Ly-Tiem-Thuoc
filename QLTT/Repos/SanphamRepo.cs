@@ -15,12 +15,21 @@ namespace QLTT.Repos
 
         public bool Add(SanPham entity)
         {
-            return true;
+            entities.SanPhams.Add(entity);
+            try
+            {
+                entities.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         public SanPham GetOne(Expression<Func<SanPham, bool>> predicate)
         {
-            return new SanPham();
+            return entities.SanPhams.FirstOrDefault(predicate);
         }
 
         public IEnumerable<SanPham> List()

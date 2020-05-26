@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.tàiKhoảnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thayĐổiThôngTinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.đăngXuấtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnLogin = new System.Windows.Forms.Button();
+            this.btnAddSP = new System.Windows.Forms.Button();
             this.dvgSanpham = new System.Windows.Forms.DataGridView();
             this.MaSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -82,20 +82,21 @@
             this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(242, 26);
             this.đăngXuấtToolStripMenuItem.Text = "Đăng xuất";
             // 
-            // btnLogin
+            // btnAddSP
             // 
-            this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(123)))), ((int)(((byte)(255)))));
-            this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLogin.FlatAppearance.BorderSize = 0;
-            this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogin.ForeColor = System.Drawing.Color.White;
-            this.btnLogin.Location = new System.Drawing.Point(12, 139);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(148, 52);
-            this.btnLogin.TabIndex = 4;
-            this.btnLogin.Text = "Thêm mới";
-            this.btnLogin.UseVisualStyleBackColor = false;
+            this.btnAddSP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(123)))), ((int)(((byte)(255)))));
+            this.btnAddSP.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddSP.FlatAppearance.BorderSize = 0;
+            this.btnAddSP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddSP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddSP.ForeColor = System.Drawing.Color.White;
+            this.btnAddSP.Location = new System.Drawing.Point(12, 139);
+            this.btnAddSP.Name = "btnAddSP";
+            this.btnAddSP.Size = new System.Drawing.Size(148, 52);
+            this.btnAddSP.TabIndex = 4;
+            this.btnAddSP.Text = "Thêm mới";
+            this.btnAddSP.UseVisualStyleBackColor = false;
+            this.btnAddSP.Click += new System.EventHandler(this.btnAddSP_Click);
             // 
             // dvgSanpham
             // 
@@ -162,9 +163,9 @@
             // 
             // delete
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.delete.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            this.delete.DefaultCellStyle = dataGridViewCellStyle2;
             this.delete.HeaderText = "";
             this.delete.MinimumWidth = 6;
             this.delete.Name = "delete";
@@ -198,7 +199,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1176, 599);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnLogin);
+            this.Controls.Add(this.btnAddSP);
             this.Controls.Add(this.dvgSanpham);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -221,7 +222,7 @@
         private System.Windows.Forms.ToolStripMenuItem tàiKhoảnToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem thayĐổiThôngTinToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem đăngXuấtToolStripMenuItem;
-        private System.Windows.Forms.Button btnLogin;
+        private System.Windows.Forms.Button btnAddSP;
         private System.Windows.Forms.DataGridView dvgSanpham;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaSP;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenSP;

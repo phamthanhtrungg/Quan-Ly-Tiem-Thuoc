@@ -101,6 +101,7 @@
       <DependentUpon>MyContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Logic\NhanVienLogic.cs" />
+    <Compile Include="Logic\SanphamLogic.cs" />
     <Compile Include="MyContext.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

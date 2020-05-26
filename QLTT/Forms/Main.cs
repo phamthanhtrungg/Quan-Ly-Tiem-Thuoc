@@ -41,5 +41,12 @@ namespace QLTT.Forms
                 MessageBox.Show("clicked1");
             }
         }
+
+        private void btnAddSP_Click(object sender, EventArgs e)
+        {
+            var formSp = new Forms.SanPham();
+            formSp.ShowDialog();
+            Show();
+        }
     }
 }
