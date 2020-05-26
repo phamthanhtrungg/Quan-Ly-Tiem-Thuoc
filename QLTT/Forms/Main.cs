@@ -1,4 +1,5 @@
-﻿using QLTT.Repos;
+﻿using QLTT.Logic;
+using QLTT.Repos;
 using System;
 using System.Windows.Forms;
 
@@ -6,11 +7,13 @@ namespace QLTT.Forms
 {
     public partial class Main : Form
     {
-        private readonly SanphamRepo sanphamRepo;
+        private SanphamRepo sanphamRepo;
+        private SanphamLogic sanphamLogic;
         public Main()
         {
             InitializeComponent();
             sanphamRepo = new SanphamRepo();
+            sanphamLogic = new SanphamLogic();
         }
 
 
@@ -24,6 +27,7 @@ namespace QLTT.Forms
         private void LoadSanpham()
         {
             dvgSanpham.Rows.Clear();
+            sanphamRepo = new SanphamRepo();
             foreach (var sanpham in sanphamRepo.List())
             {
                 dvgSanpham.Rows.Add(sanpham.MaSP, sanpham.TenSP, sanpham.CongDungSP, sanpham.GiaBan, sanpham.SoLuongTaiCuaHang, "", "");
@@ -47,7 +51,20 @@ namespace QLTT.Forms
             }
             else if (e.ColumnIndex == 6)
             {
-                MessageBox.Show("clicked1");
+                if (MessageBox.Show("Bạn có muốn xóa bản lưu này không?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    var currentRow = dvgSanpham.Rows[e.RowIndex];
+                    var maSp = currentRow.Cells[0].Value.ToString();
+                    if (sanphamLogic.XoaSanPham(s => s.MaSP == maSp))
+                    {
+                        MessageBox.Show("Thao tác thánh công");
+                        LoadSanpham();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Thao tác thất bại");
+                    }
+                }
             }
         }
 

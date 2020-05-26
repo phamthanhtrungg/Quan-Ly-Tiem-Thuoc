@@ -45,7 +45,45 @@ namespace QLTT.Repos
 
         public bool Remove(Expression<Func<SanPham, bool>> predicate)
         {
-            return true;
+            var sp = GetOne(predicate);
+            if (sp == null) return false;
+            else
+            {
+                try
+                {
+                    entities.SanPhams.Remove(sp);
+                    entities.SaveChanges();
+                    return true;
+                }
+                catch
+                {
+                    return false;
+                }
+            }
+        }
+
+        public bool CapNhatSanPham(SanPham sanphamMoi)
+        {
+            var sp = GetOne(s => s.MaSP == sanphamMoi.MaSP);
+            if (sp == null)
+            {
+                return false;
+            }
+            else
+            {
+                sp.TenSP = sanphamMoi.TenSP;
+                sp.CongDungSP = sanphamMoi.CongDungSP;
+                sp.GiaBan = sanphamMoi.GiaBan;
+                try
+                {
+                    entities.SaveChanges();
+                    return true;
+                }
+                catch
+                {
+                    return false;
+                }
+            }
         }
     }
 }

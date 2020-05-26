@@ -12,10 +12,6 @@ namespace QLTT.Forms
         private readonly SanphamRepo sanphamRepo;
         public event EventHandler ReloadSP;
         private bool isThemSp = true;
-        private string maSp = "";
-        private string tenSp = "";
-        private string giaban = "";
-        private string congdung = "";
         public SanPhamForm()
         {
             InitializeComponent();
@@ -26,6 +22,8 @@ namespace QLTT.Forms
         public SanPhamForm(bool isUpdateSp, string maSP, string tenSP, string giabanSP, string congdungSP)
         {
             InitializeComponent();
+            sanphamLogic = new SanphamLogic();
+            sanphamRepo = new SanphamRepo();
             if (isUpdateSp)
             {
                 lblMaSp.Visible = true;
@@ -45,39 +43,40 @@ namespace QLTT.Forms
             {
                 return;
             }
-            var maSP = Utils.RandomString();
+            var maSP = isThemSp ? Utils.RandomString() : txtMaSP.Text;
             do
             {
                 maSP = Utils.RandomString();
-            } while (sanphamRepo.GetOne(s => s.MaSP == maSP) != null);
+            } while (sanphamRepo.GetOne(s => s.MaSP == maSP) != null && isThemSp);
             var tenSp = txtTen.Text;
             var giaBan = Int32.Parse(txtGiaban.Text);
             var congdung = txtCongdung.Text;
             var result = true;
+            var sp = new SanPham()
+            {
+
+                MaSP = isThemSp ? maSP : txtMaSP.Text,
+                GiaBan = giaBan,
+                CongDungSP = congdung,
+                TenSP = tenSp
+            };
             if (isThemSp)
             {
-                result = sanphamLogic.ThemSanPham(new SanPham()
-                {
-
-                    MaSP = maSP,
-                    GiaBan = giaBan,
-                    CongDungSP = congdung,
-                    TenSP = tenSp
-                });
+                result = sanphamLogic.ThemSanPham(sp);
             }
             else
             {
-
+                result = sanphamLogic.CapNhatSanPham(sp);
             }
 
             if (result)
             {
-                MessageBox.Show("Thêm thành công");
+                MessageBox.Show("Thao tác thánh công");
                 ReloadSP?.Invoke(sender, e);
             }
             else
             {
-                MessageBox.Show("Thêm thất bại");
+                MessageBox.Show("Thao tác thất bại");
             }
             Close();
         }
@@ -99,7 +98,7 @@ namespace QLTT.Forms
         private void txtCongdung_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
 
-            if (Regex.Match(txtGiaban.Text, @"\d+").Success)
+            if (Regex.Match(txtCongdung.Text, @"\d+").Success)
             {
                 errorProvider1.SetError(txtCongdung, "Công dụng không hợp lệ");
                 e.Cancel = true;
