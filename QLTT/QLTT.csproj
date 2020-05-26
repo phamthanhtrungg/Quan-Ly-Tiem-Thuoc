@@ -85,6 +85,12 @@
     <Compile Include="Forms\Registration.Designer.cs">
       <DependentUpon>Registration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\SanPham.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SanPham.Designer.cs">
+      <DependentUpon>SanPham.cs</DependentUpon>
+    </Compile>
     <Compile Include="HoaDon.cs">
       <DependentUpon>MyContext.tt</DependentUpon>
     </Compile>
@@ -128,6 +134,7 @@
     <Compile Include="Repos\ChucVuRepo.cs" />
     <Compile Include="Repos\IRepo.cs" />
     <Compile Include="Repos\NhanVienRepo.cs" />
+    <Compile Include="Repos\SanphamRepo.cs" />
     <Compile Include="SanPham.cs">
       <DependentUpon>MyContext.tt</DependentUpon>
     </Compile>
@@ -146,6 +153,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Registration.resx">
       <DependentUpon>Registration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SanPham.resx">
+      <DependentUpon>SanPham.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
