@@ -17,11 +17,13 @@ namespace QLTT.Forms
 
         private void Main_Load(object sender, EventArgs e)
         {
+
             LoadSanpham();
         }
 
         private void LoadSanpham()
         {
+            dvgSanpham.Rows.Clear();
             foreach (var sanpham in sanphamRepo.List())
             {
                 dvgSanpham.Rows.Add(sanpham.MaSP, sanpham.TenSP, sanpham.CongDungSP, sanpham.GiaBan, sanpham.SoLuongTaiCuaHang, "", "");
@@ -44,9 +46,14 @@ namespace QLTT.Forms
 
         private void btnAddSP_Click(object sender, EventArgs e)
         {
-            var formSp = new Forms.SanPham();
+            var formSp = new SanPhamForm();
+            formSp.ReloadSP += CustomLoad;
             formSp.ShowDialog();
-            Show();
         }
+        void CustomLoad(object sender, EventArgs e)
+        {
+            LoadSanpham();
+        }
+
     }
 }
