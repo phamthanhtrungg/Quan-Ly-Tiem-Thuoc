@@ -1,4 +1,6 @@
 ﻿using QLTT.Repos;
+using System;
+using System.Linq.Expressions;
 
 namespace QLTT.Logic
 {
@@ -15,5 +17,14 @@ namespace QLTT.Logic
             return sanphamRepo.Add(sanpham);
         }
 
+        public bool CapNhatSanPham(SanPham sanphamMoi)
+        {
+            return sanphamRepo.CapNhatSanPham(sanphamMoi);
+        }
+
+        public bool XoaSanPham(Expression<Func<SanPham, bool>> predicate)
+        {
+            return sanphamRepo.Remove(predicate);
+        }
     }
 }
