@@ -85,11 +85,11 @@
     <Compile Include="Forms\Registration.Designer.cs">
       <DependentUpon>Registration.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\SanPham.cs">
+    <Compile Include="Forms\SanPhamForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\SanPham.Designer.cs">
-      <DependentUpon>SanPham.cs</DependentUpon>
+    <Compile Include="Forms\SanPhamForm.Designer.cs">
+      <DependentUpon>SanPhamForm.cs</DependentUpon>
     </Compile>
     <Compile Include="HoaDon.cs">
       <DependentUpon>MyContext.tt</DependentUpon>
@@ -155,8 +155,8 @@
     <EmbeddedResource Include="Forms\Registration.resx">
       <DependentUpon>Registration.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\SanPham.resx">
-      <DependentUpon>SanPham.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\SanPhamForm.resx">
+      <DependentUpon>SanPhamForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -17,11 +17,13 @@ namespace QLTT.Forms
 
         private void Main_Load(object sender, EventArgs e)
         {
+
             LoadSanpham();
         }
 
         private void LoadSanpham()
         {
+            dvgSanpham.Rows.Clear();
             foreach (var sanpham in sanphamRepo.List())
             {
                 dvgSanpham.Rows.Add(sanpham.MaSP, sanpham.TenSP, sanpham.CongDungSP, sanpham.GiaBan, sanpham.SoLuongTaiCuaHang, "", "");
@@ -34,7 +36,14 @@ namespace QLTT.Forms
         {
             if (e.ColumnIndex == 5)
             {
-                MessageBox.Show("clicked");
+                var currentRow = dvgSanpham.Rows[e.RowIndex];
+                var maSp = currentRow.Cells[0].Value.ToString();
+                var tenSp = currentRow.Cells[1].Value.ToString();
+                var congdungSp = currentRow.Cells[2].Value.ToString();
+                var giaBan = currentRow.Cells[3].Value.ToString();
+                var formSp = new SanPhamForm(true, maSp, tenSp, giaBan, congdungSp);
+                formSp.ReloadSP += CustomLoad;
+                formSp.ShowDialog();
             }
             else if (e.ColumnIndex == 6)
             {
@@ -44,9 +53,14 @@ namespace QLTT.Forms
 
         private void btnAddSP_Click(object sender, EventArgs e)
         {
-            var formSp = new Forms.SanPham();
+            var formSp = new SanPhamForm();
+            formSp.ReloadSP += CustomLoad;
             formSp.ShowDialog();
-            Show();
         }
+        void CustomLoad(object sender, EventArgs e)
+        {
+            LoadSanpham();
+        }
+
     }
 }
