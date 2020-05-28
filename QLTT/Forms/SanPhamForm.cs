@@ -12,14 +12,8 @@ namespace QLTT.Forms
         private readonly SanphamRepo sanphamRepo;
         public event EventHandler ReloadSP;
         private bool isThemSp = true;
-        public SanPhamForm()
-        {
-            InitializeComponent();
-            sanphamLogic = new SanphamLogic();
-            sanphamRepo = new SanphamRepo();
-        }
 
-        public SanPhamForm(bool isUpdateSp, string maSP, string tenSP, string giabanSP, string congdungSP)
+        public SanPhamForm(bool isUpdateSp = false, string maSP = "", string tenSP = "", string giabanSP = "", string congdungSP = "")
         {
             InitializeComponent();
             sanphamLogic = new SanphamLogic();

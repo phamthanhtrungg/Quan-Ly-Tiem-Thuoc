@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Threading.Tasks;
 
 namespace QLTT.Repos
 {
@@ -67,10 +65,26 @@ namespace QLTT.Repos
         }
 
 
-        public async Task<bool> Update(Expression<Func<NhanVien, bool>> predicate, params string[] args)
+        public bool Update(string username, string hashedPassword, string dienthoai, string diachiNV, string email, string gioitinhNV, string hotenNV, string ngaysinhNV)
         {
-            var nhanVien = await entities.NhanViens.Where(predicate).SingleOrDefaultAsync();
-            return false;
+            var nhanVien = entities.NhanViens.Where(n => n.Username == username).SingleOrDefault();
+            if (nhanVien == null) return false;
+            nhanVien.Password = hashedPassword;
+            nhanVien.DiaChiNV = diachiNV;
+            nhanVien.Email = email;
+            nhanVien.GioiTinhNV = gioitinhNV;
+            nhanVien.HoTenNV = hotenNV;
+            nhanVien.DienThoaiNV = int.Parse(dienthoai);
+            nhanVien.NgaySinhNV = DateTime.Parse(ngaysinhNV);
+            try
+            {
+                entities.SaveChanges();
+                return true;
+            }
+            catch (Exception err)
+            {
+                return false;
+            }
         }
     }
 }
