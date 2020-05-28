@@ -1,11 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 
 namespace QLTT.Repos
 {
-    public class KhoRepo : IRepo<KhoThuoc>
+    public class KhoThuocRepo : IRepo<KhoThuoc>
     {
+        private readonly QuanLyNhaThuocEntities entities;
+        public KhoThuocRepo()
+        {
+            entities = new QuanLyNhaThuocEntities();
+        }
         public bool Add(KhoThuoc entity)
         {
             return true;
@@ -18,7 +24,7 @@ namespace QLTT.Repos
 
         public IEnumerable<KhoThuoc> List()
         {
-            throw new NotImplementedException();
+            return entities.KhoThuocs.ToList();
         }
 
         public IEnumerable<KhoThuoc> List(Expression<Func<KhoThuoc, bool>> predicate)

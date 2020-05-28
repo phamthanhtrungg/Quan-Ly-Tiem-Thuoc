@@ -8,10 +8,12 @@ namespace QLTT.Forms
     public partial class KhoThuocForm : Form
     {
         private SanphamRepo sanphamRepo;
+        private KhoThuocRepo khoThuocRepo;
         public KhoThuocForm()
         {
             InitializeComponent();
             sanphamRepo = new SanphamRepo();
+            khoThuocRepo = new KhoThuocRepo();
             listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
             listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
             listView2.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
@@ -23,6 +25,10 @@ namespace QLTT.Forms
             sanphamRepo.List().ToList().ForEach(s =>
             {
                 listView1.Items.Add(new ListViewItem(new string[] { s.MaSP, s.TenSP }));
+            });
+            khoThuocRepo.List().ToList().ForEach(k =>
+            {
+                listView2.Items.Add(new ListViewItem(new string[] { k.MaSP, k.TenSP }));
             });
 
         }
