@@ -5,20 +5,40 @@ using System.Windows.Forms;
 
 namespace QLTT.Forms
 {
-    public partial class Registration : Form
+    public partial class NhanVienForm : Form
     {
 
         private readonly NhanVienLogic logic;
         private readonly NhanVienRepo nhanvienRepo;
         private readonly ChucVuRepo chucVuRepo;
+        private bool isUpdateNhanVien = false;
 
-        public Registration()
+        public NhanVienForm(bool isUpdateNhanvien = false, string diachi = "", string dienthoai = "", string email = "", bool gioitinh = false,
+            string hoten = "", string ngaySinh = "", string username = "", string chucvu = "", string matkhau = "")
         {
             InitializeComponent();
             logic = new NhanVienLogic();
             nhanvienRepo = new NhanVienRepo();
             chucVuRepo = new ChucVuRepo();
+            if (isUpdateNhanvien)
+            {
+                this.isUpdateNhanVien = isUpdateNhanvien;
+                txtFullname.Text = hoten;
+                txtAddress.Text = diachi;
+                txtPhone.Text = dienthoai;
+                txtEmail.Text = email;
+                rdMale.Checked = gioitinh;
+                dtBOD.Text = ngaySinh;
+                txtUsername.Text = username;
+                cmbChucVu.SelectedValue = chucvu;
+                lblHeader.Text = "Cập Nhật Thông Tin Nhân Viên";
+                cmbChucVu.Enabled = false;
+                txtUsername.Enabled = false;
+                txtPwd.Text = matkhau;
+
+            }
         }
+
 
         private void btnLogin_Click(object sender, System.EventArgs e)
         {
@@ -38,23 +58,31 @@ namespace QLTT.Forms
             {
                 maNV = cmbChucVu.SelectedValue.ToString().Trim() + "_" + Utils.RandomString();
             } while (nhanvienRepo.GetOne(n => n.MaNV == maNV) != null);
-            var hotenNV = txtFullname.Text;
-            var diaChiNV = txtAddress.Text;
-            var email = txtEmail.Text;
+            var hotenNV = txtFullname.Text.Trim();
+            var diaChiNV = txtAddress.Text.Trim();
+            var email = txtEmail.Text.Trim();
             var gioiTinh = rdMale.Checked ? "Nam" : "Nữ";
-            var pwd = txtPwd.Text;
-            var username = txtUsername.Text;
-            var phone = txtPhone.Text;
-            var ngaySinh = dtBOD.Text;
-            var res = logic.DangKi(username, pwd, maNV, diaChiNV, email, gioiTinh, hotenNV, cmbChucVu.SelectedValue.ToString().Trim(), ngaySinh); ;
-            if (res)
+            var pwd = txtPwd.Text.Trim();
+            var username = txtUsername.Text.Trim();
+            var phone = txtPhone.Text.Trim();
+            var ngaySinh = dtBOD.Text.Trim();
+            var res = false;
+            if (this.isUpdateNhanVien)
             {
-                MessageBox.Show("Đăng kí thành công", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
+                res = logic.ThayDoiThongTin(username, pwd, phone, diaChiNV, email, gioiTinh, hotenNV, ngaySinh);
             }
             else
             {
-                MessageBox.Show("Đăng kí thất bại", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                res = logic.DangKi(username, pwd, maNV, diaChiNV, email, gioiTinh, hotenNV, cmbChucVu.SelectedValue.ToString().Trim(), ngaySinh);
+
+            }
+            if (res)
+            {
+                MessageBox.Show("Thực hiện hành công", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Thực hiện thất bại", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

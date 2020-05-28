@@ -44,5 +44,11 @@ namespace QLTT.Logic
 
             return repo.Add(nhanvien);
         }
+        public bool ThayDoiThongTin(string username, string hashedPassword, string dienthoai, string diachiNV, string email, string gioitinhNV, string hotenNV, string ngaysinhNV)
+        {
+
+            return repo.Update(username, hashedPassword, dienthoai, diachiNV, email, gioitinhNV, hotenNV, ngaysinhNV);
+        }
+
     }
 }

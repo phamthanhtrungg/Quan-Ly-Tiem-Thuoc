@@ -67,6 +67,12 @@
     <Compile Include="Forms\ForgotPassword.Designer.cs">
       <DependentUpon>ForgotPassword.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\KhoThuocForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\KhoThuocForm.Designer.cs">
+      <DependentUpon>KhoThuocForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\LogIn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,11 +85,11 @@
     <Compile Include="Forms\Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Registration.cs">
+    <Compile Include="Forms\NhanVienForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Registration.Designer.cs">
-      <DependentUpon>Registration.cs</DependentUpon>
+    <Compile Include="Forms\NhanVienForm.Designer.cs">
+      <DependentUpon>NhanVienForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\SanPhamForm.cs">
       <SubType>Form</SubType>
@@ -134,6 +140,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repos\ChucVuRepo.cs" />
     <Compile Include="Repos\IRepo.cs" />
+    <Compile Include="Repos\KhoRepo.cs" />
     <Compile Include="Repos\NhanVienRepo.cs" />
     <Compile Include="Repos\SanphamRepo.cs" />
     <Compile Include="SanPham.cs">
@@ -146,14 +153,17 @@
     <EmbeddedResource Include="Forms\ForgotPassword.resx">
       <DependentUpon>ForgotPassword.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\KhoThuocForm.resx">
+      <DependentUpon>KhoThuocForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\LogIn.resx">
       <DependentUpon>LogIn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Registration.resx">
-      <DependentUpon>Registration.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\NhanVienForm.resx">
+      <DependentUpon>NhanVienForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SanPhamForm.resx">
       <DependentUpon>SanPhamForm.cs</DependentUpon>

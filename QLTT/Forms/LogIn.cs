@@ -40,7 +40,7 @@ namespace QLTT
             }
             else
             {
-                var main = new Main();
+                var main = new Main(txtUsername.Text);
                 this.Hide();
                 main.ShowDialog();
                 this.Show();
@@ -78,7 +78,7 @@ namespace QLTT
 
         private void txtRegister_Click(object sender, System.EventArgs e)
         {
-            var registrationForm = new Registration();
+            var registrationForm = new NhanVienForm();
             registrationForm.ShowDialog();
         }
 

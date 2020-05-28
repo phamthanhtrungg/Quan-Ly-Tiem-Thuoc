@@ -1,6 +1,6 @@
 ﻿namespace QLTT.Forms
 {
-    partial class Registration
+    partial class NhanVienForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblHeader = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtFullname = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -55,16 +55,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // lblHeader
             // 
-            this.label1.Font = new System.Drawing.Font("Calibri", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.SeaGreen;
-            this.label1.Location = new System.Drawing.Point(0, 18);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(548, 50);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Nhân Viên Mới";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblHeader.Font = new System.Drawing.Font("Calibri", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHeader.ForeColor = System.Drawing.Color.SeaGreen;
+            this.lblHeader.Location = new System.Drawing.Point(0, 18);
+            this.lblHeader.Name = "lblHeader";
+            this.lblHeader.Size = new System.Drawing.Size(548, 50);
+            this.lblHeader.TabIndex = 0;
+            this.lblHeader.Text = "Nhân Viên Mới";
+            this.lblHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
             // 
@@ -186,7 +186,7 @@
             this.radioButton2.AutoSize = true;
             this.radioButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton2.ForeColor = System.Drawing.Color.SeaGreen;
-            this.radioButton2.Location = new System.Drawing.Point(435, 319);
+            this.radioButton2.Location = new System.Drawing.Point(432, 324);
             this.radioButton2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(48, 22);
@@ -225,7 +225,7 @@
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(136, 52);
             this.btnRegister.TabIndex = 6;
-            this.btnRegister.Text = "Đăng Kí";
+            this.btnRegister.Text = "Thực hiện";
             this.btnRegister.UseVisualStyleBackColor = false;
             this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
@@ -322,7 +322,7 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // Registration
+            // NhanVienForm
             // 
             this.AcceptButton = this.btnLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -352,11 +352,13 @@
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblHeader);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
-            this.Name = "Registration";
+            this.MaximumSize = new System.Drawing.Size(566, 709);
+            this.MinimumSize = new System.Drawing.Size(566, 709);
+            this.Name = "NhanVienForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Register New User";
             this.Load += new System.EventHandler(this.Registration_Load);
@@ -368,7 +370,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblHeader;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtFullname;
         private System.Windows.Forms.Label label3;

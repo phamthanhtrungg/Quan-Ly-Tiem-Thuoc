@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QLTT.Forms;
+using System;
 using System.Windows.Forms;
 
 namespace QLTT
@@ -13,7 +14,7 @@ namespace QLTT
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Forms.Main());
+            Application.Run(new KhoThuocForm());
         }
     }
 }

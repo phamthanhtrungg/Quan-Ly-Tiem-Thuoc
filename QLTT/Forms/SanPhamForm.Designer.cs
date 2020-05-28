@@ -153,6 +153,8 @@
             this.lblHeader.Font = new System.Drawing.Font("Arial", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHeader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.lblHeader.Location = new System.Drawing.Point(3, 21);
+            this.lblHeader.MaximumSize = new System.Drawing.Size(548, 50);
+            this.lblHeader.MinimumSize = new System.Drawing.Size(548, 50);
             this.lblHeader.Name = "lblHeader";
             this.lblHeader.Size = new System.Drawing.Size(548, 50);
             this.lblHeader.TabIndex = 12;

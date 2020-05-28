@@ -9,11 +9,17 @@ namespace QLTT.Forms
     {
         private SanphamRepo sanphamRepo;
         private SanphamLogic sanphamLogic;
-        public Main()
+        private NhanVienLogic nhanvienLogic;
+        private NhanVienRepo nhanvienRepo;
+        private string username = "";
+        public Main(string username)
         {
             InitializeComponent();
             sanphamRepo = new SanphamRepo();
             sanphamLogic = new SanphamLogic();
+            nhanvienLogic = new NhanVienLogic();
+            nhanvienRepo = new NhanVienRepo();
+            this.username = username;
         }
 
 
@@ -79,5 +85,26 @@ namespace QLTT.Forms
             LoadSanpham();
         }
 
+        private void thayĐổiThôngTinToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            nhanvienRepo = new NhanVienRepo();
+            var nhanvien = nhanvienRepo.GetOne(n => n.Username == this.username);
+            if (nhanvien != null)
+            {
+                var formNhanvien = new NhanVienForm(true
+                    , nhanvien.DiaChiNV, nhanvien.DienThoaiNV.ToString(), nhanvien.Email, nhanvien.GioiTinhNV == "Nam", nhanvien.HoTenNV, nhanvien.NgaySinhNV.ToString(), nhanvien.Username, nhanvien.ChucVu.MaCV, nhanvien.Password);
+                formNhanvien.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Lỗi");
+            }
+        }
+
+        private void quảnLýKhoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var khoForm = new KhoThuocForm();
+            khoForm.ShowDialog();
+        }
     }
 }
