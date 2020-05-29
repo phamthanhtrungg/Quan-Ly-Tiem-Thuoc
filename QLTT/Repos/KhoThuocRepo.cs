@@ -12,6 +12,40 @@ namespace QLTT.Repos
         {
             entities = new QuanLyNhaThuocEntities();
         }
+        public bool AddRange(List<KhoThuoc> khoThuocs)
+        {
+            entities.KhoThuocs.AddRange(khoThuocs);
+            try
+            {
+                entities.SaveChanges();
+                return true;
+            }
+            catch (Exception err)
+            {
+                return false;
+            }
+        }
+        public bool RemoveRange(List<KhoThuoc> khoThuocs)
+        {
+            try
+            {
+                foreach (var item in khoThuocs)
+                {
+                    var sp = entities.KhoThuocs.Where(k => k.MaSP == item.MaSP).SingleOrDefault();
+                    if (sp != null)
+                    {
+                        entities.KhoThuocs.Remove(sp);
+                    }
+                }
+                entities.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                return false;
+            }
+        }
         public bool Add(KhoThuoc entity)
         {
             return true;
@@ -19,7 +53,7 @@ namespace QLTT.Repos
 
         public KhoThuoc GetOne(Expression<Func<KhoThuoc, bool>> predicate)
         {
-            return new KhoThuoc();
+            return entities.KhoThuocs.Where(predicate).SingleOrDefault();
         }
 
         public IEnumerable<KhoThuoc> List()

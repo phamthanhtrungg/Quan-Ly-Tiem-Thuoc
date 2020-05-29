@@ -106,6 +106,7 @@
     <Compile Include="KhoThuoc.cs">
       <DependentUpon>MyContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="Logic\KhoThuocLogic.cs" />
     <Compile Include="Logic\NhanVienLogic.cs" />
     <Compile Include="Logic\SanphamLogic.cs" />
     <Compile Include="MyContext.Context.cs">

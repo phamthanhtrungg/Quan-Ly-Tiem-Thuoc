@@ -37,10 +37,10 @@ namespace QLTT.Forms
             {
                 return;
             }
-            var maSP = isThemSp ? Utils.RandomString() : txtMaSP.Text;
+            var maSP = isThemSp ? "SP_" + Utils.RandomString() : txtMaSP.Text;
             do
             {
-                maSP = Utils.RandomString();
+                maSP = "SP_" + Utils.RandomString();
             } while (sanphamRepo.GetOne(s => s.MaSP == maSP) != null && isThemSp);
             var tenSp = txtTen.Text;
             var giaBan = Int32.Parse(txtGiaban.Text);
