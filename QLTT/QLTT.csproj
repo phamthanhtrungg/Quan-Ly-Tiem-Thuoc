@@ -91,6 +91,12 @@
     <Compile Include="Forms\NhanVienForm.Designer.cs">
       <DependentUpon>NhanVienForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\PhieuNhapForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PhieuNhapForm.Designer.cs">
+      <DependentUpon>PhieuNhapForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\SanPhamForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,6 +148,7 @@
     <Compile Include="Repos\ChucVuRepo.cs" />
     <Compile Include="Repos\IRepo.cs" />
     <Compile Include="Repos\KhoThuocRepo.cs" />
+    <Compile Include="Repos\NccRepo.cs" />
     <Compile Include="Repos\NhanVienRepo.cs" />
     <Compile Include="Repos\SanphamRepo.cs" />
     <Compile Include="SanPham.cs">
@@ -165,6 +172,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\NhanVienForm.resx">
       <DependentUpon>NhanVienForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PhieuNhapForm.resx">
+      <DependentUpon>PhieuNhapForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SanPhamForm.resx">
       <DependentUpon>SanPhamForm.cs</DependentUpon>
