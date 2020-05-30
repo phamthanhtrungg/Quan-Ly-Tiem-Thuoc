@@ -360,7 +360,7 @@
             this.MinimumSize = new System.Drawing.Size(566, 709);
             this.Name = "NhanVienForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Register New User";
+            this.Text = "Đăng kí nhân viên mới";
             this.Load += new System.EventHandler(this.Registration_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
