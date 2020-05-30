@@ -8,13 +8,14 @@ namespace QLTT.Forms
     {
         private NccRepo nccRepo;
         private bool isUpdatePhieuNhap = false;
-        public PhieuNhapForm(bool isUpdatePhieuNhap = false)
+        public PhieuNhapForm(bool isUpdatePhieuNhap = false, string maNV = "")
         {
             InitializeComponent();
             nccRepo = new NccRepo();
             if (isUpdatePhieuNhap)
             {
-                this.
+                this.isUpdatePhieuNhap = isUpdatePhieuNhap;
+                txtMaNv.Text = maNV;
             }
 
         }
