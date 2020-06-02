@@ -8,20 +8,23 @@ namespace QLTT.Forms
     {
         private NccRepo nccRepo;
         private bool isUpdatePhieuNhap = false;
-        public PhieuNhapForm(bool isUpdatePhieuNhap = false)
+        public PhieuNhapForm(string maNV = "", bool isUpdatePhieuNhap = false)
         {
             InitializeComponent();
             nccRepo = new NccRepo();
             if (isUpdatePhieuNhap)
             {
-                this.
+                this.isUpdatePhieuNhap = isUpdatePhieuNhap;
+
             }
+            txtMaNv.Text = maNV;
 
         }
 
 
         private void LoadData()
         {
+            nccRepo = new NccRepo();
             cmbNcc.DataSource = nccRepo.List();
             cmbNcc.DisplayMember = "TenNCC";
             cmbNcc.ValueMember = "MaNCC";
@@ -72,6 +75,11 @@ namespace QLTT.Forms
                 e.Cancel = false;
                 errorProvider1.SetError(txtSoLuong, "Số lượng nhập không hợp lệ");
             }
+        }
+
+        private void cmbNcc_MouseClick(object sender, MouseEventArgs e)
+        {
+            LoadData();
         }
     }
 }

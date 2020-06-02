@@ -10,13 +10,15 @@ namespace QLTT.Forms
         private SanphamRepo sanphamRepo;
         private KhoThuocRepo khoThuocRepo;
         private KhoThuocLogic khoThuocLogic;
-        public KhoThuocForm()
+        private string maNv = "";
+        public KhoThuocForm(string maNv = "")
         {
             InitializeComponent();
             sanphamRepo = new SanphamRepo();
             khoThuocRepo = new KhoThuocRepo();
             khoThuocLogic = new KhoThuocLogic();
             LoadKhoThuoc();
+            if (maNv.Length != 0) this.maNv = maNv;
 
         }
 
@@ -40,8 +42,8 @@ namespace QLTT.Forms
 
         private void btnPhieuNhap_Click(object sender, EventArgs e)
         {
-            var phieuNhap = new PhieuNhapForm();
-            phieuNhap.ShowDialog();
+            var phieuNhap = new PhieuNhapForm(this.maNv);
+            phieuNhap.Show();
         }
     }
 }

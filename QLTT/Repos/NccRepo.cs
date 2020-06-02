@@ -14,12 +14,40 @@ namespace QLTT.Repos
         }
         public bool Add(NhaCungCap entity)
         {
-            return true;
+            entities.NhaCungCaps.Add(entity);
+            try
+            {
+                entities.SaveChanges();
+                return true;
+            }
+            catch (Exception err)
+            {
+                return false;
+            }
+        }
+
+        public bool Update(NhaCungCap ncc)
+        {
+            var nccIndb = entities.NhaCungCaps.Where(n => n.MaNCC == ncc.MaNCC).SingleOrDefault();
+            if (nccIndb == null) return false;
+            nccIndb.TenNCC = ncc.TenNCC;
+            nccIndb.DiaChiNCC = ncc.DiaChiNCC;
+            nccIndb.DienThoaiNCC = ncc.DienThoaiNCC;
+            try
+            {
+                entities.SaveChanges();
+                return true;
+            }
+            catch (Exception err)
+            {
+                return false;
+            }
+
         }
 
         public NhaCungCap GetOne(Expression<Func<NhaCungCap, bool>> predicate)
         {
-            return new NhaCungCap();
+            return entities.NhaCungCaps.Where(predicate).SingleOrDefault();
         }
 
         public IEnumerable<NhaCungCap> List()
@@ -34,7 +62,19 @@ namespace QLTT.Repos
 
         public bool Remove(Expression<Func<NhaCungCap, bool>> predicate)
         {
-            throw new NotImplementedException();
+            var nccIndb = entities.NhaCungCaps.Where(predicate).SingleOrDefault();
+            if (nccIndb == null) return false;
+            try
+            {
+                entities.NhaCungCaps.Remove(nccIndb);
+                entities.SaveChanges();
+                return true;
+            }
+            catch (Exception err)
+            {
+                return false;
+            }
+
         }
     }
 }

@@ -66,7 +66,7 @@
             this.btnCancel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.White;
             this.btnCancel.Location = new System.Drawing.Point(657, 486);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(111, 42);
             this.btnCancel.TabIndex = 11;
@@ -83,7 +83,7 @@
             this.btnRemove.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRemove.ForeColor = System.Drawing.SystemColors.Control;
             this.btnRemove.Location = new System.Drawing.Point(436, 486);
-            this.btnRemove.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnRemove.Margin = new System.Windows.Forms.Padding(2);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(111, 42);
             this.btnRemove.TabIndex = 12;
@@ -106,11 +106,13 @@
             this.Column4,
             this.Column5});
             this.dataGridView1.Location = new System.Drawing.Point(10, 140);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.ShowEditingIcon = false;
             this.dataGridView1.Size = new System.Drawing.Size(758, 324);
             this.dataGridView1.TabIndex = 13;
@@ -165,7 +167,7 @@
             this.btnPhieuNhap.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPhieuNhap.ForeColor = System.Drawing.SystemColors.Control;
             this.btnPhieuNhap.Location = new System.Drawing.Point(10, 85);
-            this.btnPhieuNhap.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnPhieuNhap.Margin = new System.Windows.Forms.Padding(2);
             this.btnPhieuNhap.Name = "btnPhieuNhap";
             this.btnPhieuNhap.Size = new System.Drawing.Size(180, 42);
             this.btnPhieuNhap.TabIndex = 14;
@@ -182,7 +184,7 @@
             this.button1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.Control;
             this.button1.Location = new System.Drawing.Point(215, 85);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(180, 42);
             this.button1.TabIndex = 15;
@@ -200,7 +202,7 @@
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.lblHeader);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(794, 583);
             this.MinimumSize = new System.Drawing.Size(794, 583);

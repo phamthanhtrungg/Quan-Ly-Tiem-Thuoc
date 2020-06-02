@@ -85,6 +85,12 @@
     <Compile Include="Forms\Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\NccForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\NccForm.Designer.cs">
+      <DependentUpon>NccForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\NhanVienForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,6 +119,7 @@
       <DependentUpon>MyContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Logic\KhoThuocLogic.cs" />
+    <Compile Include="Logic\NccLogic.cs" />
     <Compile Include="Logic\NhanVienLogic.cs" />
     <Compile Include="Logic\SanphamLogic.cs" />
     <Compile Include="MyContext.Context.cs">
@@ -169,6 +176,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\NccForm.resx">
+      <DependentUpon>NccForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\NhanVienForm.resx">
       <DependentUpon>NhanVienForm.cs</DependentUpon>

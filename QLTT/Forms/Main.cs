@@ -103,8 +103,15 @@ namespace QLTT.Forms
 
         private void quảnLýKhoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var khoForm = new KhoThuocForm();
-            khoForm.ShowDialog();
+            var currentUser = nhanvienRepo.GetOne(n => n.Username == this.username);
+            var khoForm = new KhoThuocForm(currentUser.MaNV);
+            khoForm.Show();
+        }
+
+        private void quảnLýNhàCungCấpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var nccForm = new NccForm();
+            nccForm.Show();
         }
     }
 }
