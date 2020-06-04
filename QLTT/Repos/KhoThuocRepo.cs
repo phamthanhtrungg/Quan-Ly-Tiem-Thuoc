@@ -25,6 +25,23 @@ namespace QLTT.Repos
                 return false;
             }
         }
+
+        public bool Update(KhoThuoc khoThuoc)
+        {
+            var khothuocInDb = entities.KhoThuocs.Where(k => k.MaSP == khoThuoc.MaSP).SingleOrDefault();
+            if (khothuocInDb == null) return false;
+            khothuocInDb.TenSP = khoThuoc.TenSP;
+            try
+            {
+                entities.SaveChanges();
+                return true;
+            }
+            catch (Exception err)
+            {
+                return false;
+            }
+        }
+
         public bool RemoveRange(List<KhoThuoc> khoThuocs)
         {
             try
@@ -48,7 +65,16 @@ namespace QLTT.Repos
         }
         public bool Add(KhoThuoc entity)
         {
-            return true;
+            try
+            {
+                entities.KhoThuocs.Add(entity);
+                entities.SaveChanges();
+                return true;
+            }
+            catch (Exception err)
+            {
+                return false;
+            }
         }
 
         public KhoThuoc GetOne(Expression<Func<KhoThuoc, bool>> predicate)
@@ -68,7 +94,18 @@ namespace QLTT.Repos
 
         public bool Remove(Expression<Func<KhoThuoc, bool>> predicate)
         {
-            return true;
+            var khothuocInDb = entities.KhoThuocs.Where(predicate).SingleOrDefault();
+            if (khothuocInDb == null) return false;
+            try
+            {
+                entities.KhoThuocs.Remove(khothuocInDb);
+                entities.SaveChanges();
+                return true;
+            }
+            catch (Exception err)
+            {
+                return false;
+            }
         }
     }
 }

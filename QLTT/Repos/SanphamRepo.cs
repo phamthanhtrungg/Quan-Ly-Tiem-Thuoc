@@ -21,7 +21,7 @@ namespace QLTT.Repos
                 entities.SaveChanges();
                 return true;
             }
-            catch
+            catch (Exception ex)
             {
                 return false;
             }
@@ -79,7 +79,7 @@ namespace QLTT.Repos
                     entities.SaveChanges();
                     return true;
                 }
-                catch
+                catch (Exception ex)
                 {
                     return false;
                 }

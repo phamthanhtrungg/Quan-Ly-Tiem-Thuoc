@@ -26,7 +26,6 @@ namespace QLTT.Forms
                 this.isThemSp = !isUpdateSp;
                 txtMaSP.Text = maSP;
                 txtTen.Text = tenSP;
-                txtGiaban.Text = giabanSP;
                 txtCongdung.Text = congdungSP;
             }
         }
@@ -43,16 +42,16 @@ namespace QLTT.Forms
                 maSP = "SP_" + Utils.RandomString();
             } while (sanphamRepo.GetOne(s => s.MaSP == maSP) != null && isThemSp);
             var tenSp = txtTen.Text;
-            var giaBan = Int32.Parse(txtGiaban.Text);
             var congdung = txtCongdung.Text;
             var result = true;
             var sp = new SanPham()
             {
 
                 MaSP = isThemSp ? maSP : txtMaSP.Text,
-                GiaBan = giaBan,
+                GiaBan = 0,
                 CongDungSP = congdung,
-                TenSP = tenSp
+                TenSP = tenSp,
+                SoLuongTaiCuaHang = 0
             };
             if (isThemSp)
             {
@@ -104,25 +103,12 @@ namespace QLTT.Forms
             }
         }
 
-        private void txtGiaban_Validating(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            if (!Regex.Match(txtGiaban.Text, @"\b\d+\b").Success)
-            {
-                errorProvider1.SetError(txtGiaban, "Giá bán không hợp lệ");
-                e.Cancel = true;
-            }
-            else
-            {
-                errorProvider1.SetError(txtGiaban, null);
-                e.Cancel = false;
-            }
-        }
 
         private void btnReset_Click(object sender, EventArgs e)
         {
             txtCongdung.ResetText();
             txtTen.ResetText();
-            txtGiaban.ResetText();
+
         }
     }
 }

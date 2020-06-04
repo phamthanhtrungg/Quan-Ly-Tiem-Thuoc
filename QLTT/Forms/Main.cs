@@ -20,15 +20,9 @@ namespace QLTT.Forms
             nhanvienLogic = new NhanVienLogic();
             nhanvienRepo = new NhanVienRepo();
             this.username = username;
-        }
-
-
-
-        private void Main_Load(object sender, EventArgs e)
-        {
-
             LoadSanpham();
         }
+
 
         private void LoadSanpham()
         {
@@ -112,6 +106,33 @@ namespace QLTT.Forms
         {
             var nccForm = new NccForm();
             nccForm.Show();
+        }
+
+        private void btnPXuat_Click(object sender, EventArgs e)
+        {
+            nhanvienRepo = new NhanVienRepo();
+            var nhanvien = nhanvienRepo.GetOne(n => n.Username == this.username);
+            var formPhieuXuat = new PhieuXuatForm(nhanvien.MaNV);
+            formPhieuXuat.Reload += FormPhieuXuat_Reload;
+            formPhieuXuat.Show();
+        }
+
+        private void FormPhieuXuat_Reload(object sender, EventArgs e)
+        {
+            LoadSanpham();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            LoadSanpham();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            nhanvienRepo = new NhanVienRepo();
+            var nhanvien = nhanvienRepo.GetOne(n => n.Username == this.username);
+            var qlPhieXuat = new QuanLyPhieuXuatForm(nhanvien.MaNV);
+            qlPhieXuat.ShowDialog();
         }
     }
 }

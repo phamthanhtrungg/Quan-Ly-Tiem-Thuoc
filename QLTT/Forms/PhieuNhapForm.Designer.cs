@@ -40,11 +40,11 @@
             this.label5 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnQuit = new System.Windows.Forms.Button();
-            this.txtTenSp = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.cmbNcc = new System.Windows.Forms.ComboBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.label7 = new System.Windows.Forms.Label();
+            this.cmbMaSp = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,7 +65,7 @@
             this.txtMaNv.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtMaNv.Enabled = false;
             this.txtMaNv.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaNv.Location = new System.Drawing.Point(211, 116);
+            this.txtMaNv.Location = new System.Drawing.Point(210, 117);
             this.txtMaNv.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtMaNv.Name = "txtMaNv";
             this.txtMaNv.Size = new System.Drawing.Size(297, 22);
@@ -87,7 +87,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.SeaGreen;
-            this.label1.Location = new System.Drawing.Point(32, 267);
+            this.label1.Location = new System.Drawing.Point(32, 281);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(79, 23);
             this.label1.TabIndex = 7;
@@ -98,11 +98,11 @@
             this.txtGiaNhap.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txtGiaNhap.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtGiaNhap.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGiaNhap.Location = new System.Drawing.Point(211, 267);
+            this.txtGiaNhap.Location = new System.Drawing.Point(211, 284);
             this.txtGiaNhap.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtGiaNhap.Name = "txtGiaNhap";
             this.txtGiaNhap.Size = new System.Drawing.Size(297, 22);
-            this.txtGiaNhap.TabIndex = 4;
+            this.txtGiaNhap.TabIndex = 5;
             this.txtGiaNhap.Validating += new System.ComponentModel.CancelEventHandler(this.txtGiaNhap_Validating);
             // 
             // label3
@@ -110,7 +110,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.SeaGreen;
-            this.label3.Location = new System.Drawing.Point(32, 217);
+            this.label3.Location = new System.Drawing.Point(32, 226);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(141, 23);
             this.label3.TabIndex = 9;
@@ -121,11 +121,11 @@
             this.txtSoLuong.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txtSoLuong.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtSoLuong.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSoLuong.Location = new System.Drawing.Point(211, 318);
+            this.txtSoLuong.Location = new System.Drawing.Point(211, 339);
             this.txtSoLuong.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtSoLuong.Name = "txtSoLuong";
             this.txtSoLuong.Size = new System.Drawing.Size(297, 22);
-            this.txtSoLuong.TabIndex = 5;
+            this.txtSoLuong.TabIndex = 6;
             this.txtSoLuong.Validating += new System.ComponentModel.CancelEventHandler(this.txtSoLuong_Validating);
             // 
             // label4
@@ -133,7 +133,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.SeaGreen;
-            this.label4.Location = new System.Drawing.Point(32, 318);
+            this.label4.Location = new System.Drawing.Point(32, 336);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(124, 23);
             this.label4.TabIndex = 11;
@@ -144,7 +144,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.SeaGreen;
-            this.label5.Location = new System.Drawing.Point(32, 368);
+            this.label5.Location = new System.Drawing.Point(32, 391);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(93, 23);
             this.label5.TabIndex = 13;
@@ -184,50 +184,50 @@
             this.btnQuit.UseVisualStyleBackColor = false;
             this.btnQuit.Click += new System.EventHandler(this.btnQuit_Click);
             // 
-            // txtTenSp
-            // 
-            this.txtTenSp.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.txtTenSp.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtTenSp.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTenSp.Location = new System.Drawing.Point(211, 166);
-            this.txtTenSp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtTenSp.Name = "txtTenSp";
-            this.txtTenSp.Size = new System.Drawing.Size(297, 22);
-            this.txtTenSp.TabIndex = 2;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.SeaGreen;
-            this.label6.Location = new System.Drawing.Point(32, 166);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(116, 23);
-            this.label6.TabIndex = 17;
-            this.label6.Text = "Tên sản phẩm";
-            // 
             // cmbNcc
             // 
             this.cmbNcc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbNcc.FormattingEnabled = true;
-            this.cmbNcc.Location = new System.Drawing.Point(211, 213);
+            this.cmbNcc.Location = new System.Drawing.Point(211, 227);
             this.cmbNcc.Margin = new System.Windows.Forms.Padding(4);
             this.cmbNcc.Name = "cmbNcc";
             this.cmbNcc.Size = new System.Drawing.Size(296, 24);
-            this.cmbNcc.TabIndex = 3;
+            this.cmbNcc.TabIndex = 4;
             this.cmbNcc.MouseClick += new System.Windows.Forms.MouseEventHandler(this.cmbNcc_MouseClick);
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(211, 368);
+            this.dateTimePicker1.Location = new System.Drawing.Point(211, 394);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(296, 22);
-            this.dateTimePicker1.TabIndex = 6;
+            this.dateTimePicker1.TabIndex = 7;
             // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.SeaGreen;
+            this.label7.Location = new System.Drawing.Point(32, 171);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(116, 23);
+            this.label7.TabIndex = 19;
+            this.label7.Text = "Tên sản phẩm";
+            // 
+            // cmbMaSp
+            // 
+            this.cmbMaSp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbMaSp.FormattingEnabled = true;
+            this.cmbMaSp.Location = new System.Drawing.Point(210, 170);
+            this.cmbMaSp.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbMaSp.Name = "cmbMaSp";
+            this.cmbMaSp.Size = new System.Drawing.Size(296, 24);
+            this.cmbMaSp.TabIndex = 20;
+            this.cmbMaSp.Click += new System.EventHandler(this.cmbMaSp_Click);
             // 
             // PhieuNhapForm
             // 
@@ -235,10 +235,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(547, 660);
+            this.Controls.Add(this.cmbMaSp);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.cmbNcc);
-            this.Controls.Add(this.txtTenSp);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnQuit);
             this.Controls.Add(this.label5);
@@ -277,10 +277,10 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnQuit;
-        private System.Windows.Forms.TextBox txtTenSp;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cmbNcc;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox cmbMaSp;
     }
 }

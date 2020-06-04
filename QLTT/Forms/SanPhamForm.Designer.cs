@@ -31,10 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
-            this.txtGiaban = new System.Windows.Forms.TextBox();
             this.txtCongdung = new System.Windows.Forms.TextBox();
             this.txtTen = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblHeader = new System.Windows.Forms.Label();
@@ -78,18 +76,6 @@
             this.btnReset.UseVisualStyleBackColor = false;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
-            // txtGiaban
-            // 
-            this.txtGiaban.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.txtGiaban.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtGiaban.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGiaban.Location = new System.Drawing.Point(188, 237);
-            this.txtGiaban.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtGiaban.Name = "txtGiaban";
-            this.txtGiaban.Size = new System.Drawing.Size(297, 20);
-            this.txtGiaban.TabIndex = 3;
-            this.txtGiaban.Validating += new System.ComponentModel.CancelEventHandler(this.txtGiaban_Validating);
-            // 
             // txtCongdung
             // 
             this.txtCongdung.BackColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -114,17 +100,6 @@
             this.txtTen.Size = new System.Drawing.Size(297, 20);
             this.txtTen.TabIndex = 1;
             this.txtTen.Validating += new System.ComponentModel.CancelEventHandler(this.txtTen_Validating);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.label8.Location = new System.Drawing.Point(30, 238);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(76, 19);
-            this.label8.TabIndex = 14;
-            this.label8.Text = "Giá bán*";
             // 
             // label7
             // 
@@ -201,10 +176,8 @@
             this.Controls.Add(this.lblMaSp);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnReset);
-            this.Controls.Add(this.txtGiaban);
             this.Controls.Add(this.txtCongdung);
             this.Controls.Add(this.txtTen);
-            this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblHeader);
@@ -222,10 +195,8 @@
         #endregion
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnReset;
-        private System.Windows.Forms.TextBox txtGiaban;
         private System.Windows.Forms.TextBox txtCongdung;
         private System.Windows.Forms.TextBox txtTen;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblHeader;

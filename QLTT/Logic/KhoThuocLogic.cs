@@ -1,5 +1,4 @@
 ﻿using QLTT.Repos;
-using System.Collections.Generic;
 
 namespace QLTT.Logic
 {
@@ -11,17 +10,17 @@ namespace QLTT.Logic
             KhoThuocRepo = new KhoThuocRepo();
         }
 
-        public bool ThemSanPham(List<KhoThuoc> khoThuocs)
-        {
-            return KhoThuocRepo.AddRange(khoThuocs);
-        }
         public bool ThemSanPham(KhoThuoc khoThuoc)
         {
-            return KhoThuocRepo.Remove(k => k.MaSP == khoThuoc.MaSP);
+            return KhoThuocRepo.Add(khoThuoc);
         }
-        public bool XoaSanPham(List<KhoThuoc> khoThuocs)
+        public bool CapNhatSanPham(KhoThuoc khoThuoc)
         {
-            return KhoThuocRepo.RemoveRange(khoThuocs);
+            return KhoThuocRepo.Update(khoThuoc);
+        }
+        public bool XoaSanPham(string maSp)
+        {
+            return KhoThuocRepo.Remove(k => k.MaSP == maSp);
         }
     }
 }
