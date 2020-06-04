@@ -21,6 +21,15 @@ namespace QLTT.Forms
             nhanvienRepo = new NhanVienRepo();
             this.username = username;
             LoadSanpham();
+            var nhanvien = nhanvienRepo.GetOne(n => n.Username == this.username);
+            if (nhanvien.MaCV.Trim().Contains("NVK"))
+            {
+                btnAddSP.Enabled = button1.Enabled = quảnLýNhàCungCấpToolStripMenuItem.Enabled = quảnLýKháchHàngToolStripMenuItem.Enabled = quảnLýHóaĐơnToolStripMenuItem.Enabled = false;
+            }
+            else if (nhanvien.MaCV.Contains("DS"))
+            {
+                btnAddSP.Enabled = button1.Enabled = quảnLýNhàCungCấpToolStripMenuItem.Enabled = btnPXuat.Enabled = quảnLýKhoToolStripMenuItem.Enabled = false;
+            }
         }
 
 
@@ -133,6 +142,25 @@ namespace QLTT.Forms
             var nhanvien = nhanvienRepo.GetOne(n => n.Username == this.username);
             var qlPhieXuat = new QuanLyPhieuXuatForm(nhanvien.MaNV);
             qlPhieXuat.ShowDialog();
+        }
+
+        private void quảnLýKháchHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var formKhachHang = new QuanLyKhachHangForm();
+            formKhachHang.ShowDialog();
+        }
+
+        private void quảnLýHóaĐơnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            nhanvienRepo = new NhanVienRepo();
+            var nhanvien = nhanvienRepo.GetOne(n => n.Username == this.username);
+            var qlHoaDon = new QuanLyHoaDonForm(nhanvien.MaNV);
+            qlHoaDon.ShowDialog();
+        }
+
+        private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

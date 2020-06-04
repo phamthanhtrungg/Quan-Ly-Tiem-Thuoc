@@ -11,6 +11,7 @@ namespace QLTT.Forms
         private SanphamRepo sanphamRepo;
         private KhoThuocRepo khoThuocRepo;
         private KhoThuocLogic khoThuocLogic;
+        private NhanVienRepo nhanvienRepo;
         private string maNv = "";
         private bool isEdit = false;
         private bool isAdd = false;
@@ -20,12 +21,20 @@ namespace QLTT.Forms
             sanphamRepo = new SanphamRepo();
             khoThuocRepo = new KhoThuocRepo();
             khoThuocLogic = new KhoThuocLogic();
+            nhanvienRepo = new NhanVienRepo();
             LoadKhoThuoc();
             var tenSp = dataGridView1.Rows[0].Cells[1].Value.ToString();
             var MaSp = dataGridView1.Rows[0].Cells[0].Value.ToString();
             txtTenSp.Text = tenSp;
             txtMasp.Text = MaSp;
             if (maNv.Length != 0) this.maNv = maNv;
+            var nhanvien = nhanvienRepo.GetOne(n => n.MaNV == this.maNv);
+            if (nhanvien.MaCV.Trim().Contains("NVK"))
+            {
+                button2.Enabled = btnSave.Enabled = btnEdit.Enabled = btnAdd.Enabled = false;
+            }
+
+
 
         }
 

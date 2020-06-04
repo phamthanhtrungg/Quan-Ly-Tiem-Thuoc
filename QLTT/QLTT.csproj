@@ -61,11 +61,29 @@
     <Compile Include="CT_HoaDon.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ChiTietHDForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ChiTietHDForm.Designer.cs">
+      <DependentUpon>ChiTietHDForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DoanhThu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DoanhThu.Designer.cs">
+      <DependentUpon>DoanhThu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ForgotPassword.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\ForgotPassword.Designer.cs">
       <DependentUpon>ForgotPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormHoaDon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormHoaDon.Designer.cs">
+      <DependentUpon>FormHoaDon.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\KhoThuocForm.cs">
       <SubType>Form</SubType>
@@ -109,6 +127,18 @@
     <Compile Include="Forms\PhieuXuatForm.Designer.cs">
       <DependentUpon>PhieuXuatForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\QuanLyHoaDonForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\QuanLyHoaDonForm.Designer.cs">
+      <DependentUpon>QuanLyHoaDonForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\QuanLyKhachHangForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\QuanLyKhachHangForm.Designer.cs">
+      <DependentUpon>QuanLyKhachHangForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\QuanLyPhieuNhapForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,12 +160,17 @@
     <Compile Include="HoaDon.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="HoaDonDto.cs" />
     <Compile Include="KhachHang.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="KhoThuoc.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Logic\HoaDonLogic.cs" />
+    <Compile Include="Logic\KhachHangLogic.cs" />
+    <Compile Include="Repos\HoadonRepo.cs" />
+    <Compile Include="Repos\KhachHangRepo.cs" />
     <Compile Include="Logic\KhoThuocLogic.cs" />
     <Compile Include="Logic\NccLogic.cs" />
     <Compile Include="Logic\NhanVienLogic.cs" />
@@ -184,8 +219,17 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Utils.cs" />
+    <EmbeddedResource Include="Forms\ChiTietHDForm.resx">
+      <DependentUpon>ChiTietHDForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DoanhThu.resx">
+      <DependentUpon>DoanhThu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ForgotPassword.resx">
       <DependentUpon>ForgotPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormHoaDon.resx">
+      <DependentUpon>FormHoaDon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\KhoThuocForm.resx">
       <DependentUpon>KhoThuocForm.cs</DependentUpon>
@@ -207,6 +251,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PhieuXuatForm.resx">
       <DependentUpon>PhieuXuatForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\QuanLyHoaDonForm.resx">
+      <DependentUpon>QuanLyHoaDonForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\QuanLyKhachHangForm.resx">
+      <DependentUpon>QuanLyKhachHangForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\QuanLyPhieuNhapForm.resx">
       <DependentUpon>QuanLyPhieuNhapForm.cs</DependentUpon>

@@ -361,7 +361,7 @@
             this.Name = "NhanVienForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng kí nhân viên mới";
-            this.Load += new System.EventHandler(this.Registration_Load);
+          
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

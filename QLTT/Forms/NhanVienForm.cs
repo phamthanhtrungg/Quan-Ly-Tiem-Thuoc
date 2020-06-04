@@ -20,6 +20,9 @@ namespace QLTT.Forms
             logic = new NhanVienLogic();
             nhanvienRepo = new NhanVienRepo();
             chucVuRepo = new ChucVuRepo();
+            cmbChucVu.DataSource = chucVuRepo.GetAll();
+            cmbChucVu.ValueMember = "MaCV";
+            cmbChucVu.DisplayMember = "TenCV";
             if (isUpdateNhanvien)
             {
                 this.isUpdateNhanVien = isUpdateNhanvien;
@@ -84,13 +87,6 @@ namespace QLTT.Forms
             {
                 MessageBox.Show("Thực hiện thất bại", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void Registration_Load(object sender, System.EventArgs e)
-        {
-            cmbChucVu.DataSource = chucVuRepo.GetAll();
-            cmbChucVu.ValueMember = "MaCV";
-            cmbChucVu.DisplayMember = "TenCV";
         }
 
         private void txtFullname_Validating(object sender, System.ComponentModel.CancelEventArgs e)
